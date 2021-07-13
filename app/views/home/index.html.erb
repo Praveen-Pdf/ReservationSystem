@@ -1,0 +1,19 @@
+<h1>Home</h1>
+
+<p> Welcome
+<% if user_signed_in?  %>
+<%= current_user.name %><div>(<%= current_user.role %>)</div>
+<% else %>
+    Anonymus
+<% end %>
+</p>
+
+<%= link_to 'Sign in', new_user_session_path %> |
+<%= link_to "sign out", destroy_user_session_path, method: :delete %> </br>
+<%= link_to 'Edit Profile', edit_user_registration_path %>
+
+
+<% if user_signed_in? && current_user.role == 'admin' %>
+</br>
+    <%# <%= link_to 'Restaurant', restaurants_path %> %>
+<% end %>
