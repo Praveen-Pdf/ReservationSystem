@@ -1,19 +1,39 @@
-<h1>Home</h1>
 
-<p> Welcome
+<div class="img-hero">
+    <div class="img-text"><p>Restaurant Reservation System</p></div>
+</div>
+<div class="container">
+
+<h1> Welcome
 <% if user_signed_in?  %>
-<%= current_user.name %><div>(<%= current_user.role %>)</div>
+<%= current_user.name %>
 <% else %>
-    Anonymus
+    User
 <% end %>
-</p>
+</h1>
 
-<%= link_to 'Sign in', new_user_session_path %> |
-<%= link_to "sign out", destroy_user_session_path, method: :delete %> </br>
-<%= link_to 'Edit Profile', edit_user_registration_path %>
-
+<hr>
 
 <% if user_signed_in? && current_user.role == 'admin' %>
-</br>
-    <%# <%= link_to 'Restaurant', restaurants_path %> %>
+    <%= link_to 'Restaurant', restaurants_path, class:"btn btn-primary" %>
+<% end %>   
+
+
+<% unless user_signed_in? %>
+<p> Hello!, Log in or Sign up to reserve tables</p>
+<%= link_to 'Log in', new_user_session_path, class:"btn btn-primary" %> 
+<%= link_to 'Sign up', new_user_registration_path, class:"btn btn-primary" %> 
+<% else %>
+<p> You can Edit or Sign out by using the below links</p>
+<%= link_to 'Restaurant', restaurants_path, class:"btn btn-primary" %>
+<%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-primary" %>
+<%= link_to "sign out", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+
 <% end %>
+<hr>
+<div class="index-info">
+<h1> Reservation System </h1>
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ipsum elit, semper et magna at, facilisis ultrices ipsum. Mauris efficitur tellus vel nibh facilisis semper. Proin nec purus egestas, efficitur ipsum a, pulvinar tellus. Curabitur pretium suscipit velit, at aliquet odio. Nam nec leo erat. Maecenas tristique libero ut nunc commodo, vitae ultricies diam dignissim. Donec sapien nisi, tincidunt eget dui et, blandit lobortis eros. Fusce at vehicula ligula, sed faucibus dolor. Sed et dui et est sollicitudin ornare. Ut pellentesque non sapien et lacinia. Curabitur vulputate aliquet justo a posuere. Phasellus finibus felis urna, nec aliquam orci hendrerit vehicula. Praesent placerat lobortis quam, eget ornare enim sollicitudin ut. Nam maximus lectus quam, eleifend tempus diam congue a. Nunc interdum ultrices est, ac efficitur risus interdum ac. Praesent ac ex id urna aliquam porta.</p>
+</div>
+
+</div>

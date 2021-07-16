@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :restaurants do
+    resources :tables
+  end
   root to: "home#index"
   devise_for :users
   devise_scope :user do

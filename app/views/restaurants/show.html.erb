@@ -1,0 +1,18 @@
+<div class="container mt-5">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @restaurant.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Email:  <%= @restaurant.email %></h6>
+    <h6 class="card-subtitle mb-2"> PH: <%= @restaurant.phone_no %></h6>
+    <p class="card-text">ADDRESS: <%= @restaurant.address %></p>
+    <p class="card-text">Time:<%= @restaurant.start_time.strftime("%k:%M %P") %> - <%= @restaurant.end_time.strftime("%k:%M %P") %> </p>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+    <%= link_to 'Add Table', new_restaurant_table_path(@restaurant), class:"btn btn-primary card-link" %>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class:"btn btn-primary card-link" %> 
+    <% end %>
+    <%= link_to 'View Tables', restaurant_tables_path(@restaurant.id), class:"btn btn-primary" %>
+    
+  </div>
+</div>
+    <%= link_to 'Back', restaurants_path, class:"btn btn-secondary card-link" %>
+</div>

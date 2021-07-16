@@ -1,0 +1,8 @@
+<div class="container">
+<h1>Editing Table</h1>
+
+<%= render 'form', table: @table %>
+
+<%= link_to 'Show', restaurant_table_path(@restaurant, @table), class:"btn btn-primary"  %>
+<%= link_to 'Back', restaurant_tables_path, class:"btn btn-secondary" %>
+</div>

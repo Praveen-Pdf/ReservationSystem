@@ -1,0 +1,13 @@
+<div class="container mt-5">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @table.restaurant.name %></h5>
+    <p class="card-text">Table Name:<%= @table.table_name %></p>
+    <p class="card-text">Capacity:<%= @table.capacity %> </p>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+    <%= link_to 'Edit', edit_restaurant_table_path(@restaurant, @table), class:"btn btn-primary card-link" %> 
+    <% end %> 
+  </div>
+</div>
+    <%= link_to 'Back', :back, class:"btn btn-secondary" %>
+</div>

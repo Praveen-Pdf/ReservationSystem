@@ -1,0 +1,39 @@
+<%= form_with(model: [@restaurant, table]) do |form| %>
+  <% if table.errors.any? %>
+    <div id="error_explanation">
+      <!-- <h2><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h2> -->
+      <ul>
+        <% table.errors.each do |error| %>
+        <div class="alert alert-danger" role="alert">
+          <li><%= error.full_message %></li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="container" id="fclass">
+<div class="form-class">
+<form>
+  <div class="form-group">
+    <%= form.hidden_field :restaurant_id %>
+    <%= form.hidden_field :restaurant_id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :table_name %>
+    <%= form.text_field :table_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class:"btn btn-primary mt-2" %>
+  </div>
+<% end %>
+</div>
+</div>
+
