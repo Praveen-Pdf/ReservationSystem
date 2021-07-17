@@ -15,7 +15,7 @@
 <hr>
 
 <% if user_signed_in? && current_user.role == 'admin' %>
-    <%= link_to 'Restaurant', restaurants_path, class:"btn btn-primary" %>
+    <%= link_to 'Bookings', bookings_path, class:"btn btn-primary" %>
 <% end %>   
 
 

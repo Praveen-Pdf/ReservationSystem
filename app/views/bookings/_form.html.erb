@@ -1,0 +1,50 @@
+<%= form_with(model: booking) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% booking.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container" id="fclass" style="float:left">
+<div class="form-class">
+<form>
+  <div class="form-group">
+    <%= form.hidden_field :user_id %>
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.hidden_field :table_id %>
+    <%= form.hidden_field :table_id, value: @table.id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone_no %>
+    <%= form.number_field :phone_no %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class:"btn btn-primary mt-2" %>
+  </div>
+</form>
+<% end %>
