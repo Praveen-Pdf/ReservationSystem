@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :tables
   end
+  get '/admin', to:"home#admin"
   root to: "home#index"
   devise_for :users
   devise_scope :user do

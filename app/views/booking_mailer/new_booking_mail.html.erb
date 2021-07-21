@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Reservation is Sucessfull <%= @booking.name %>!</p>
+    <p>
+    Booking details<br>
+    --------------------------
+    </p>
+    <p>Name: <%= @booking.name %></p>
+    <p>Email: <%= @booking.email %></p>
+    <p>Phone: <%= @booking.phone_no %></p>
+    <p>
+    Note:<br>
+    ---------------------------
+    </p>
+    <p><%= @booking.notes %></p>
+  </body>
+</html>

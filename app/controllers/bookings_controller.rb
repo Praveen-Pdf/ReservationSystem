@@ -27,7 +27,6 @@ class BookingsController < ApplicationController
     # @table = Table.find(params[:table_id])
     # @user = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-
     # @booking.table_id = @table.id
     @booking.user_id = current_user.id
 
@@ -35,6 +34,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        BookingMailer.with(booking: @booking, restaurant: 1).new_booking_mail.deliver_now
         format.html { redirect_to @booking, notice: "Booking was successfully created." }
         format.json { render :show, status: :created, location: @booking }
       else
