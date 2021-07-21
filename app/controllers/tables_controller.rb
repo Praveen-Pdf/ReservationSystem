@@ -28,6 +28,10 @@ class TablesController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @table = @restaurant.tables.build(table_params)
+    
+    #Extras
+    @table.restaurant_name = @restaurant.name
+    @table.restaurant_mail = @restaurant.email
 
     respond_to do |format|
       if @table.save
@@ -68,6 +72,6 @@ class TablesController < ApplicationController
     end
 
     def table_params
-      params.require(:table).permit(:restaurant_id, :table_name, :capacity)
+      params.require(:table).permit(:restaurant_id,:restaurant_name,:restaurant_mail, :table_name, :capacity)
     end
 end

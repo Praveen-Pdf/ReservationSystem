@@ -1,12 +1,13 @@
 <div class="container mt-5">
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-text">Username:<%= current_user.name %></h5>
-    <p class="card-text">Table Name:<%= @booking.table_id %></p>
-    <p class="card-text">Name:<%= @booking.name %></p>
+    <p class="card-text"><b>Restaurant Name:</b><%= @booking.table.restaurant_name %></p>
+    <p class="card-text"><b>Table Name:</b><%= @booking.table.table_name %></p>
+    <hr>
+    <p class="card-text"><b>Name:</b><%= @booking.name %></p>
     <p class="card-text"><%= @booking.email %> </p>
     <p class="card-text"><%= @booking.phone_no %> </p>
-    <p class="card-text">Notes:<%= @booking.notes %> </p>
+    <p class="card-text"><b>Notes:</b><%= @booking.notes %> </p>
 </div>
 </div>
-    <%= link_to 'Back', :back, class:"btn btn-secondary" %>
+<%= link_to 'Back', :back, class:"btn btn-secondary" %>

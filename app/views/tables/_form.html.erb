@@ -16,10 +16,22 @@
 
 <div class="container" id="fclass">
 <div class="form-class">
+  
+  <h6><%= @restaurant.name %></h6>
 <form>
   <div class="form-group">
     <%= form.hidden_field :restaurant_id %>
     <%= form.hidden_field :restaurant_id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.hidden_field :restaurant_name %>
+    <%= form.hidden_field :restaurant_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.hidden_field :restaurant_mail %>
+    <%= form.hidden_field :restaurant_mail %>
   </div>
 
   <div class="form-group">
@@ -38,5 +50,3 @@
 <% end %>
 </div>
 </div>
-
-<%= @restaurant.name %>

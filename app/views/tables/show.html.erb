@@ -8,8 +8,8 @@
     <%= link_to 'Edit', edit_restaurant_table_path(@restaurant, @table), class:"btn btn-primary card-link" %> 
     <% end %> 
 
-    <%= link_to 'Book This', new_booking_path(user_id:current_user.id,table_id:@table), class:"btn btn-primary"%>
+    <%= link_to 'Book This', new_booking_path(user_id:current_user.id,table_id:@table), class:"btn btn-info"%>
   </div>
 </div>
     <%= link_to 'Back', :back, class:"btn btn-secondary" %>
-</div>
+</div>  

@@ -5,13 +5,19 @@
 <% @bookings.each do |booking| %>
 <div class="card">
   <div class="card-body">
-    <h5 class="card-text"><%= booking.user_id %></h5>
-    <p class="card-text">Table id:<%= booking.table_id %></p>
-    <p class="card-text">Name:<%= booking.name %></p>
-    <p class="card-text">Email:<%= booking.email %></p>
-    <p class="card-text">Ph no:<%= booking.phone_no %></p>
-    <p class="card-text">Notes:<%= booking.notes %></p>
-    </p>
+    <h5 class="card-text">Username:<%= booking.user.name %></h5>
+    <h5 class="card-text">Order ID:<%= booking.id %></h5>
+
+    <!--
+    <hr>
+    <p class="card-text"><b>Restaurant Name:</b>    <%= booking.table.restaurant_name %></p>
+    <p class="card-text"><b>Table Name:</b>   <%= booking.table.table_name %></p>
+    <p class="card-text"><b>Name:</b>   <%= booking.name %></p>
+    <p class="card-text"><b>Email:</b>    <%= booking.email %></p>
+    <p class="card-text"><b>Ph no:</b>    <%= booking.phone_no %></p>
+    <p class="card-text"><b>Notes:</b>    <%= booking.notes %></p>
+    </p> 
+    -->
   <%= link_to 'Show', booking, class:"btn btn-secondary" %>
   <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
   </div>

@@ -7,4 +7,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
+  <div id="profile">
+  <% if user_signed_in? %>
+  <p><%= current_user.name %></p>
+  <% end %>
+  </div>
 </nav>

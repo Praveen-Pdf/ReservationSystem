@@ -34,7 +34,8 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        BookingMailer.with(booking: @booking, restaurant: 1).new_booking_mail.deliver_now
+        BookingMailer.with(booking: @booking, restaurant: @booking.table.restaurant_mail).new_booking_mail.deliver_now
+        BookingMailer.with(booking: @booking, restaurant: @booking.table.restaurant_mail).new_booking_rest_mail.deliver_now
         format.html { redirect_to @booking, notice: "Booking was successfully created." }
         format.json { render :show, status: :created, location: @booking }
       else

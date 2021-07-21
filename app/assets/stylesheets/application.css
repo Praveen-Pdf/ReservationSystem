@@ -100,3 +100,17 @@
     float: left;
     margin-left: 200px;
 }
+
+
+/* profile */
+
+#profile{
+    padding:0 20px;
+}
+
+#profile p{
+    color: white;
+    margin: 0;
+    font-size: 25px;
+    cursor: pointer;
+}
