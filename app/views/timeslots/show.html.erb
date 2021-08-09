@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Table:</strong>
+  <%= @timeslot.table_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @timeslot.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @timeslot.date %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @timeslot.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @timeslot.end %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @timeslot.status %>
+</p>
+
+<%= link_to 'Edit', edit_table_timeslot_path(@timeslot) %> |
+<%= link_to 'Back', table_timeslots_path %>

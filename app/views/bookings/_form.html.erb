@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= form.hidden_field :table_id %>
-    <%= form.hidden_field :table_id, value: @table.id %>
+    <%= form.hidden_field :table_id, value: params[:table_id] %>
   </div>
 
   <div class="form-group">
@@ -36,12 +36,26 @@
     <%= form.label :phone_no %>
     <%= form.number_field :phone_no %>
   </div>
+  
+  <div class="form-group mt-4">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= form.label :time %>
+    <%= form.collection_select :timeslot_id, Timeslot.where(:table_id => params[:table_id]), :id, :name, {prompt: true}, {:required =>true} %>
+  </div>
 
   <div class="form-group">
     <%= form.label :notes %>
     <%= form.text_area :notes %>
   </div>
-
+  <!--
+  <%= select_tag 'timeslot_id', options_from_collection_for_select(Timeslot.where(:table_id => params[:table_id]), :id, :name, @booking.timeslot_id), {:class=>'form-control', :prompt => 'select Time'}  %>
+    <%= options_from_collection_for_select(Timeslot.where(:table_id => params[:table_id]), :id, :name) %>
+    <%= collection_select(:booking, :timeslot_id, Timeslot.all, :id, :name,{},{ :multiple => false}) %>
+  -->
   <div class="form-group">
     <%= form.submit class:"btn btn-primary mt-2" %>
   </div>

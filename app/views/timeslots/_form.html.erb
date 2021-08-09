@@ -1,0 +1,53 @@
+<%= form_with(model: [@table, timeslot]) do |form| %>
+  <% if timeslot.errors.any? %>
+    <div id="error_explanation">
+      <!-- <h2><%= pluralize(timeslot.errors.count, "error") %> prohibited this timeslot from being saved:</h2>-->
+      <ul>
+        <% timeslot.errors.each do |error| %>
+        <div class="alert alert-danger" role="alert">
+          <li><%= error.full_message %></li>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="container" id="fclass">
+<div class="form-class">
+
+  <div class="form-group">
+    <%= form.hidden_field :table_id %>
+    <%= form.hidden_field :table_id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start %>
+    <%= form.time_select :start %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :end %>
+    <%= form.time_select :end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class:"btn btn-primary mt-2" %>
+  </div>
+<% end %>
+</div>
+</div>

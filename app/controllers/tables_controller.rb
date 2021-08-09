@@ -5,13 +5,14 @@ class TablesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @tables = @restaurant.tables
-  end
-
-
+  end  
+  
   def show
     @restaurant = Restaurant.find(params[:restaurant_id])
+    
+    #For booking status
+    @bookstatus = Booking.find_by(table_id: params[:id], user_id: current_user.id)
   end
-
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])

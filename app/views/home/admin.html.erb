@@ -5,4 +5,10 @@
 <%= link_to 'Bookings', bookings_path, class:"btn btn-primary" %>
 <%= link_to 'Restaurants', restaurants_path, class:"btn btn-primary" %>
 
-</div>
+<p> Users </p>
+<% @user.each do |user| %>
+<%= user.name %>
+<br> 
+<% end %>
+
+</div> 

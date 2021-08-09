@@ -1,0 +1,26 @@
+<div class="container">
+<div class="card mt-5" style="width: 18rem;">
+  <div class="card-body">
+  <% if user_signed_in? %>
+    <h5 class="card-title"><%= current_user.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= current_user.email %></h6>
+    <p class="card-text"></p>
+    <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-primary" %>
+    <%= link_to "sign out", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+    <% else %>
+    <p class="card-text">Sign to View Details</p>
+    <% end %>
+
+    <hr>
+    <p class="card-text">My Bookings</p>
+    <hr>
+    <% @booking.each do |book| %>
+    <%= book.id %>
+    <p class="card-text">Restaurant Name: <strong><%= book.table.restaurant_name %></strong><br>Table Name: <strong><%= book.table.table_name %></strong></p><p><%= link_to 'Show', booking_path(id:book.id), class:"btn btn-secondary" %></p>
+    <br>
+    <% end %>
+    
+  </div>
+</div>
+  <%= link_to "Back", :back, class:"btn btn-secondary" %>
+</div>

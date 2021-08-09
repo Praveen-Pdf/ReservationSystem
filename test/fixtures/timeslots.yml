@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  table: one
+  name: MyString
+  date: 2021-08-04
+  start: 2021-08-04 12:18:36
+  end: 2021-08-04 12:18:36
+  status: false
+
+two:
+  table: two
+  name: MyString
+  date: 2021-08-04
+  start: 2021-08-04 12:18:36
+  end: 2021-08-04 12:18:36
+  status: false

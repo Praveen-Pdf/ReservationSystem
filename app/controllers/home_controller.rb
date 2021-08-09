@@ -5,5 +5,10 @@ class HomeController < ApplicationController
   end
 
   def admin
+    @user = User.all
+  end
+
+  def profile
+    @booking = Booking.where(user_id: current_user.id).reverse_order
   end
 end

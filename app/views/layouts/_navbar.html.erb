@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark alert-dismissible">
   <div class="container-fluid">
    <div id="logo">
    <a href="/">Home</a>
@@ -8,8 +8,10 @@
     </button>
   </div>
   <div id="profile">
+  <a href="/profile">
   <% if user_signed_in? %>
   <p><%= current_user.name %></p>
   <% end %>
+  </a>
   </div>
 </nav>

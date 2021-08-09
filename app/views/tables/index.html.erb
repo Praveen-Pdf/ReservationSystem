@@ -2,23 +2,37 @@
 <h1>Tables</h1>
 <p> for <%= @restaurant.name %>
 
+<div class="grid-container">    
 <% @tables.each do |table| %>
-    
-<div class="card">
+<div class="card grid-item" id="card-t">
   <div class="card-body">
     <h5 class="card-title"><%= table.table_name %></h5>
     <p class="card-text">Capacity:  <%= table.capacity %></p>
-    <%= link_to 'Show', restaurant_table_path(id:table.id), class:"btn btn-primary" %>
+
+
     <% if user_signed_in? && current_user.role == 'admin' %>
+    <%= link_to 'Show', restaurant_table_path(id:table.id), class:"btn btn-primary" %>
     <%= link_to 'Edit',  edit_restaurant_table_path(@restaurant,table.id), class:"btn btn-primary"%>
-    <%= link_to 'Destroy', [@restaurant, table], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <%= link_to 'Destroy', [@restaurant, table], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>    
     <% end %>
+    <%= link_to 'Book This', new_booking_path(user_id:current_user.id,table_id:table), class:"btn btn-info"%>
+  
+  <% if user_signed_in? && current_user.role == 'admin' %>
+  <%= link_to 'Add TimeSlot', new_table_timeslot_path(table), class:"btn btn-primary" %>
+  <%= link_to 'Show TimeSlot', table_timeslots_path(table), class:"btn btn-primary" %>
+  <% end %>
+
+    
     </p>
   </div>
 </div>
 <% end %>
+</div>
 <% if user_signed_in? && current_user.role == 'admin' %>
 <%= link_to 'New Table', new_restaurant_table_path, class:"btn btn-primary" %>
 <% end %>
 <%= link_to 'Back', restaurants_path, class:"btn btn-secondary" %>
 </div>
+
+
+

@@ -8,8 +8,18 @@
     <%= link_to 'Edit', edit_restaurant_table_path(@restaurant, @table), class:"btn btn-primary card-link" %> 
     <% end %> 
 
-    <%= link_to 'Book This', new_booking_path(user_id:current_user.id,table_id:@table), class:"btn btn-info"%>
+    <% unless !@bookstatus.nil? && !@bookstatus.new_record? && @bookstatus.status %>
+      <%= link_to 'Book This', new_booking_path(user_id:current_user.id,table_id:@table), class:"btn btn-info"%>
+    <% else %>
+      <p id="info-card"> Booked Already </p>
+      <p> see <a href="/profile">profile</a> to manage booking</p>
+    <% end %>
   </div>
 </div>
     <%= link_to 'Back', :back, class:"btn btn-secondary" %>
 </div>  
+
+<%= @bookstatus.inspect %>
+
+<%# <%= @bookstatus.new_record? %> %>
+
